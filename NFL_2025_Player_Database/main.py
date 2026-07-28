@@ -15,6 +15,7 @@ Run with:  python main.py
 
 from __future__ import annotations
 
+import io
 import sys
 import time
 from pathlib import Path
@@ -51,13 +52,24 @@ def log(message: str) -> None:
     print(f"[{time.strftime('%H:%M:%S')}] {message}")
 
 
+def download_bytes(url: str, description: str) -> bytes:
+    """Fetch a URL's raw content with a bounded timeout and clear error handling."""
+    try:
+        response = requests.get(url, timeout=REQUEST_TIMEOUT)
+        response.raise_for_status()
+    except requests.exceptions.RequestException as exc:
+        raise RuntimeError(f"Failed to download {description} from {url}: {exc}") from exc
+    return response.content
+
+
 def fetch_parquet(url: str, description: str) -> pd.DataFrame:
     """Download a parquet file from nflverse with basic error handling."""
     log(f"Downloading {description} ...")
+    raw = download_bytes(url, description)
     try:
-        df = pd.read_parquet(url)
-    except Exception as exc:  # noqa: BLE001 - surface any download/parse failure
-        raise RuntimeError(f"Failed to download {description} from {url}: {exc}") from exc
+        df = pd.read_parquet(io.BytesIO(raw))
+    except Exception as exc:  # noqa: BLE001 - surface any parse failure
+        raise RuntimeError(f"Failed to parse {description} from {url}: {exc}") from exc
     log(f"  -> {len(df):,} rows retrieved")
     return df
 
@@ -65,10 +77,11 @@ def fetch_parquet(url: str, description: str) -> pd.DataFrame:
 def fetch_csv(url: str, description: str) -> pd.DataFrame:
     """Download a CSV file from a public URL with basic error handling."""
     log(f"Downloading {description} ...")
+    raw = download_bytes(url, description)
     try:
-        df = pd.read_csv(url)
+        df = pd.read_csv(io.BytesIO(raw))
     except Exception as exc:  # noqa: BLE001
-        raise RuntimeError(f"Failed to download {description} from {url}: {exc}") from exc
+        raise RuntimeError(f"Failed to parse {description} from {url}: {exc}") from exc
     log(f"  -> {len(df):,} rows retrieved")
     return df
 

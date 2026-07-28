@@ -38,6 +38,14 @@ public endpoints — nothing is bundled or hardcoded:
 | `nflverse-data` release `pfr_advstats` (Pro-Football-Reference advanced stats) | Supplemental games-started counts, and optional receiving "Drops" |
 | `nflfastR-data` team reference CSV | Team conference/division metadata |
 
+All downloads go through `requests` (with a bounded timeout and clear error
+messages), and the files themselves are read with `pandas`/`pyarrow`. The
+`nfl_data_py` package is not used: its convenience functions read from a
+pre-built nflverse summary file that hadn't been published for the 2025
+season at the time this was built, so `main.py` aggregates the same
+statistics directly from play-by-play data instead — which also means the
+pipeline doesn't have to wait on that summary file for a given season.
+
 Because the core stat tables are aggregated directly from play-by-play data
 (rather than a pre-built nflverse summary file), the pipeline works for any
 season as soon as nflverse publishes that season's play-by-play file — just
