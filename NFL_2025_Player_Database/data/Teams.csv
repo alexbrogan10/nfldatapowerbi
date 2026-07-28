@@ -1,0 +1,33 @@
+TeamID,Team,Conference,Division,Wins,Losses,Ties,PointsFor,PointsAgainst
+NE,New England Patriots,AFC,AFC East,14,3,0,490,320
+BUF,Buffalo Bills,AFC,AFC East,12,5,0,481,365
+MIA,Miami Dolphins,AFC,AFC East,7,10,0,347,424
+NYJ,New York Jets,AFC,AFC East,3,14,0,300,503
+PIT,Pittsburgh Steelers,AFC,AFC North,10,7,0,397,387
+BAL,Baltimore Ravens,AFC,AFC North,8,9,0,424,398
+CIN,Cincinnati Bengals,AFC,AFC North,6,11,0,414,492
+CLE,Cleveland Browns,AFC,AFC North,5,12,0,279,379
+JAX,Jacksonville Jaguars,AFC,AFC South,13,4,0,474,336
+HOU,Houston Texans,AFC,AFC South,12,5,0,404,295
+IND,Indianapolis Colts,AFC,AFC South,8,9,0,466,412
+TEN,Tennessee Titans,AFC,AFC South,3,14,0,284,478
+DEN,Denver Broncos,AFC,AFC West,14,3,0,401,311
+LAC,Los Angeles Chargers,AFC,AFC West,11,6,0,368,340
+KC,Kansas City Chiefs,AFC,AFC West,6,11,0,362,328
+LV,Las Vegas Raiders,AFC,AFC West,3,14,0,241,432
+PHI,Philadelphia Eagles,NFC,NFC East,11,6,0,379,325
+DAL,Dallas Cowboys,NFC,NFC East,7,9,1,471,511
+WAS,Washington Commanders,NFC,NFC East,5,12,0,356,451
+NYG,New York Giants,NFC,NFC East,4,13,0,381,439
+CHI,Chicago Bears,NFC,NFC North,11,6,0,441,415
+DET,Detroit Lions,NFC,NFC North,9,8,0,481,413
+GB,Green Bay Packers,NFC,NFC North,9,7,1,391,360
+MIN,Minnesota Vikings,NFC,NFC North,9,8,0,344,333
+ATL,Atlanta Falcons,NFC,NFC South,8,9,0,353,401
+CAR,Carolina Panthers,NFC,NFC South,8,9,0,311,380
+TB,Tampa Bay Buccaneers,NFC,NFC South,8,9,0,380,411
+NO,New Orleans Saints,NFC,NFC South,6,11,0,306,383
+SEA,Seattle Seahawks,NFC,NFC West,14,3,0,483,292
+LA,Los Angeles Rams,NFC,NFC West,12,5,0,518,346
+SF,San Francisco 49ers,NFC,NFC West,12,5,0,437,371
+ARI,Arizona Cardinals,NFC,NFC West,3,14,0,355,488
